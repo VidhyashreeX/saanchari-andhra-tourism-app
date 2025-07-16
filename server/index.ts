@@ -1,11 +1,11 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-import dotenv from 'dotenv';
 
-// Load environment variables from .env file in development
-if (process.env.NODE_ENV !== 'production') {
-  dotenv.config();
+// Verify required environment variables
+if (!process.env.GEMINI_API_KEY) {
+  console.error('Error: GEMINI_API_KEY environment variable is not set');
+  process.exit(1);
 }
 
 const app = express();
