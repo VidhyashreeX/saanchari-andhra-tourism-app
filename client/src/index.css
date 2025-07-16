@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Saanchari Brand Colors - Updated to match brand guidelines */
+  --saanchari-primary: #F75768;
+  --saanchari-secondary: #FB6957;
+  --saanchari-accent: #07546B;
+  --saanchari-neutral: #CFD1D1;
+  --saanchari-light: #F8F9FA;
+  --saanchari-dark: #2C3E50;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body, #root {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .saanchari-primary {
+    color: var(--saanchari-primary);
+  }
+
+  .bg-saanchari-primary {
+    background-color: var(--saanchari-primary);
+  }
+
+  .bg-saanchari-secondary {
+    background-color: var(--saanchari-secondary);
+  }
+
+  .bg-saanchari-accent {
+    background-color: var(--saanchari-accent);
+  }
+
+  .bg-saanchari-neutral {
+    background-color: var(--saanchari-neutral);
+  }
+
+  .bg-saanchari-light {
+    background-color: var(--saanchari-light);
+  }
+
+  .text-saanchari-dark {
+    color: var(--saanchari-dark);
+  }
+
+  .text-saanchari-accent {
+    color: var(--saanchari-accent);
+  }
+
+  .text-saanchari-primary {
+    color: var(--saanchari-primary);
+  }
+
+  .text-saanchari-secondary {
+    color: var(--saanchari-secondary);
+  }
+
+  .border-saanchari-primary {
+    border-color: var(--saanchari-primary);
+  }
+
+  .hover\:bg-saanchari-secondary:hover {
+    background-color: var(--saanchari-secondary);
+  }
+
+  .chat-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .message-container {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--saanchari-neutral) var(--saanchari-light);
+  }
+
+  .message-container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .message-container::-webkit-scrollbar-track {
+    background: var(--saanchari-light);
+  }
+
+  .message-container::-webkit-scrollbar-thumb {
+    background: var(--saanchari-neutral);
+    border-radius: 3px;
+  }
+
+  .message-container::-webkit-scrollbar-thumb:hover {
+    background: hsl(192, 12%, 70%);
+  }
+
+  .typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .typing-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--saanchari-accent);
+    animation: typing 1.4s infinite ease-in-out;
+  }
+
+  .typing-dot:nth-child(1) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(2) { animation-delay: 0.4s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.6s; }
+
+  @keyframes typing {
+    0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+    40% { transform: scale(1); opacity: 1; }
+  }
+
+  .language-badge {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-right: 6px;
+    display: inline-block;
+  }
+
+  .language-badge.hindi {
+    background-color: hsl(48, 96%, 89%);
+    color: hsl(45, 93%, 47%);
+  }
+
+  .language-badge.telugu {
+    background-color: hsl(213, 94%, 92%);
+    color: hsl(224, 76%, 48%);
+  }
+
+  .message-bubble {
+    max-width: 70%;
+    word-wrap: break-word;
+    line-height: 1.5;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .message-bubble {
+      max-width: 85%;
+    }
+  }
+}
