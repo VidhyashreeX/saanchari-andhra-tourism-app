@@ -1,152 +1,186 @@
-# Saanchari - Tourism Assistant for Andhra Pradesh
+# 🌍 Saanchari - AI-Powered Tourism Assistant for Andhra Pradesh
 
-A multilingual tourism chatbot for Andhra Pradesh with ChatGPT-like interface, powered by Google Gemini AI, supporting English, Hindi, and Telugu languages.
+<div align="center">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
+  <img src="https://img.shields.io/badge/Google_Generative_AI-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Generative AI">
+</div>
 
-## Features
+## ✨ Overview
 
-- **ChatGPT-like Interface**: Clean, modern chat interface similar to ChatGPT
-- **Multi-language Support**: English, Hindi, and Telugu with real-time translation
-- **AI-Powered**: Uses Google Gemini AI for intelligent travel recommendations
-- **Enhanced Responses**: Bold formatting, bullet points, and scannable information
-- **Andhra Pradesh Tourism**: Specialized knowledge about Andhra Pradesh destinations
-- **Real-time Translation**: Seamlessly switch between languages during conversation
-- **Quick Suggestions**: Pre-defined travel questions to get started quickly
-- **Customizable System Prompt**: Easy to modify AI behavior and response style
+Saanchari is an intelligent, multilingual tourism assistant designed specifically for Andhra Pradesh. Powered by Google's Gemini AI, it provides personalized travel recommendations, cultural insights, and real-time assistance in English, Hindi, and Telugu. The application features a modern, ChatGPT-like interface with seamless language switching capabilities.
 
-## Prerequisites
+## 🚀 Key Features
 
-- Node.js 18 or higher
-- npm or yarn package manager
-- Google Gemini API key (free from Google)
+- **Multilingual Support**: Native support for English, Hindi, and Telugu with real-time translation
+- **AI-Powered Recommendations**: Utilizes Google's Gemini AI for intelligent, context-aware travel suggestions
+- **Interactive Chat Interface**: Clean, responsive UI with typing indicators and message history
+- **Quick Suggestions**: Pre-defined prompts for common tourism queries
+- **Rich Media Support**: Displays images and formatted content for better user experience
+- **Responsive Design**: Works seamlessly across desktop and mobile devices
 
-## Local Development Setup
+## 🛠️ Technical Stack
 
-### 1. Clone and Install
+### Frontend
+- **Framework**: React 18 with TypeScript
+- **State Management**: React Query
+- **Styling**: Tailwind CSS with custom theming
+- **UI Components**: Radix UI primitives
+- **Build Tool**: Vite
 
-```bash
-git clone <your-repo-url>
-cd saanchari
-npm install
-```
+### Backend
+- **Runtime**: Node.js with Express
+- **AI Integration**: Google Gemini API
+- **Authentication**: JWT (JSON Web Tokens)
+- **API Documentation**: OpenAPI/Swagger
 
-### 2. Get Google Gemini API Key
+### AI & ML
+- **Generative AI**: Google Gemini Pro
+- **Language Model**: Gemini 1.0 Pro
+- **Context Window**: 30,720 tokens
+- **Multimodal Capabilities**: Text and image understanding
 
-1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Sign in with your Google account
-3. Click "Create API Key"
-4. Copy the API key (starts with "AIza...")
+## 🚀 Getting Started
 
-### 3. Environment Setup
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Google Gemini API key
 
-1. Copy the environment example file:
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/VidhyashreeX/saanchari-andhra-tourism-app.git
+   cd saanchari-andhra-tourism-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   cd client && npm install && cd ..
+   ```
+
+3. **Set up environment variables**
    ```bash
    cp .env.example .env
+   # Edit .env with your Google Gemini API key
    ```
 
-2. Edit the `.env` file and add your API key:
-   ```
-   GEMINI_API_KEY=your_actual_api_key_here
-   NODE_ENV=development
-   PORT=5000
+4. **Start the development server**
+   ```bash
+   npm run dev
    ```
 
-### 4. Run the Application
+5. **Access the application**
+   - Frontend: http://localhost:5000
+   - API Server: http://localhost:5000/api
 
-```bash
-# Start development server
-npm run dev
-```
-
-The application will be available at `http://localhost:5000`
-
-## Project Structure
+## 🏗️ Project Structure
 
 ```
-saanchari/
 ├── client/                 # Frontend React application
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── pages/         # Page components
-│   │   ├── hooks/         # Custom React hooks
-│   │   └── lib/           # Utility functions
+│   ├── public/            # Static assets
+│   └── src/               # Source code
+│       ├── components/    # Reusable UI components
+│       ├── pages/         # Page components
+│       ├── hooks/         # Custom React hooks
+│       └── lib/           # Utility functions and API clients
 ├── server/                # Backend Express application
-│   ├── services/          # AI and translation services
-│   ├── routes.ts          # API routes
+│   ├── services/          # Business logic and external services
+│   ├── routes.ts          # API route definitions
 │   └── index.ts           # Server entry point
-├── shared/                # Shared types and schemas
-└── attached_assets/       # Logo and brand assets
+├── shared/                # Shared types and utilities
+└── .github/               # GitHub workflows and templates
 ```
 
-## API Endpoints
+## 🌐 API Endpoints
 
-- `POST /api/chat` - Send chat messages and get AI responses
-- `POST /api/translate` - Translate text between languages
-- `POST /api/translate-history` - Translate chat history
-- `GET /api/suggestions` - Get quick suggestion prompts
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST   | `/api/chat` | Process chat messages with AI |
+| POST   | `/api/translate` | Translate text between supported languages |
+| GET    | `/api/suggestions` | Get quick suggestion prompts |
 
-## Environment Variables
+## 🔒 Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `GEMINI_API_KEY` | Google Gemini API key | Yes |
-| `NODE_ENV` | Environment (development/production) | Yes |
-| `PORT` | Server port (default: 5000) | No |
+Create a `.env` file in the root directory with the following variables:
 
-## Color Scheme
+```env
+# Server Configuration
+PORT=5000
+NODE_ENV=development
 
-The application uses the official Saanchari brand colors:
-- Primary: #F75768 (Coral Pink)
-- Secondary: #FB6957 (Orange)
-- Accent: #07546B (Dark Teal)
-- Neutral: #CFD1D1 (Light Gray)
+# Google Gemini AI
+GEMINI_API_KEY=your_gemini_api_key
 
-## Languages Supported
+# JWT Configuration (optional)
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRES_IN=7d
+```
 
-- **English** (en) - Default language
-- **Hindi** (hi) - हिंदी with [हिंदी] prefix
-- **Telugu** (te) - తెలుగు with [తెలుగు] prefix
+## 🎨 UI Components
 
-## Development Commands
+The application uses a custom design system built with:
+- **Radix UI** for accessible primitives
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **React Icons** for iconography
 
+## 🤖 AI Integration
+
+### Google Gemini AI
+- **Model**: Gemini 1.0 Pro
+- **Features**:
+  - Natural language understanding
+  - Context-aware responses
+  - Support for code generation
+  - Image understanding capabilities
+
+### Prompt Engineering
+
+Custom system prompt template:
+```
+You are Saanchari, an AI travel assistant for Andhra Pradesh. Your responses should be:
+- Informative and engaging
+- Culturally sensitive
+- Available in English, Hindi, and Telugu
+- Formatted with markdown for better readability
+```
+
+## 🛡️ Security
+
+- Input sanitization
+- Rate limiting
+- JWT authentication
+- Environment-based configuration
+- Secure headers
+
+## 📦 Deployment
+
+### Production Build
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
 npm run build
-
-# Database operations (if using database)
-npm run db:push
-npm run db:generate
+npm start
 ```
 
-## Troubleshooting
+### Docker Support
+```bash
+docker build -t saanchari .
+docker run -p 5000:5000 saanchari
+```
 
-### Common Issues
+## 📝 License
 
-1. **API Key Error**: Make sure your GEMINI_API_KEY is correctly set in the `.env` file
-2. **Port 5000 in use**: Change the PORT in `.env` file or stop other services using port 5000
-3. **Module not found**: Run `npm install` to install all dependencies
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Getting Help
+## 🙏 Acknowledgments
 
-If you encounter issues:
-1. Check the browser console for error messages
-2. Check the server logs in the terminal
-3. Verify your API key is valid and has sufficient quota
-4. Ensure all environment variables are properly set
+- Google AI for the Gemini API
+- The React and Node.js communities
+- All contributors and testers
 
-## Contributing
+## 📬 Contact
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is for educational and demonstration purposes.
+For questions or feedback, please open an issue or contact the maintainers.
