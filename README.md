@@ -7,9 +7,11 @@ A multilingual tourism chatbot for Andhra Pradesh with ChatGPT-like interface, p
 - **ChatGPT-like Interface**: Clean, modern chat interface similar to ChatGPT
 - **Multi-language Support**: English, Hindi, and Telugu with real-time translation
 - **AI-Powered**: Uses Google Gemini AI for intelligent travel recommendations
+- **Enhanced Responses**: Bold formatting, bullet points, and scannable information
 - **Andhra Pradesh Tourism**: Specialized knowledge about Andhra Pradesh destinations
 - **Real-time Translation**: Seamlessly switch between languages during conversation
 - **Quick Suggestions**: Pre-defined travel questions to get started quickly
+- **Customizable System Prompt**: Easy to modify AI behavior and response style
 
 ## Prerequisites
 

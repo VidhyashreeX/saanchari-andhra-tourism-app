@@ -27,9 +27,25 @@ export function ChatMessage({ message }: ChatMessageProps) {
             {message.language?.toUpperCase()}
           </span>
         )}
-        <p className={`${isUser ? 'text-white' : 'text-saanchari-dark'} leading-relaxed`}>
-          {message.text}
-        </p>
+        <div className={`${isUser ? 'text-white' : 'text-saanchari-dark'} leading-relaxed`}>
+          {message.text.split('\n').map((line, index) => {
+            // Handle bullet points
+            if (line.startsWith('•')) {
+              return (
+                <div key={index} className="flex items-start mb-1">
+                  <span className="mr-2 font-bold">•</span>
+                  <span dangerouslySetInnerHTML={{ __html: line.substring(1).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+                </div>
+              );
+            }
+            // Handle regular lines with bold formatting
+            return (
+              <p key={index} className={`${line.trim() ? 'mb-2' : ''}`}>
+                <span dangerouslySetInnerHTML={{ __html: line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+              </p>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

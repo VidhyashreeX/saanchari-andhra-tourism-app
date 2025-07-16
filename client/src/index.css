@@ -204,6 +204,24 @@
     line-height: 1.5;
   }
 
+  .message-bubble strong {
+    font-weight: 700;
+    color: var(--saanchari-accent);
+  }
+
+  .message-bubble .bg-saanchari-primary strong {
+    color: white;
+    font-weight: 800;
+  }
+
+  .message-bubble p {
+    margin-bottom: 0.5rem;
+  }
+
+  .message-bubble p:last-child {
+    margin-bottom: 0;
+  }
+
   .fade-in {
     animation: fadeIn 0.3s ease-in-out;
   }
