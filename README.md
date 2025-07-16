@@ -56,43 +56,64 @@ Saanchari is an intelligent, multilingual tourism assistant designed specificall
    cd saanchari-andhra-tourism-app
    ```
 
-2. **Install dependencies**
+2. **Run the setup script**
    ```bash
-   npm install
-   cd client && npm install && cd ..
+   chmod +x setup.sh
+   ./setup.sh
    ```
+   
+   This will:
+   - Install all required dependencies
+   - Set up the environment variables
+   - Guide you through the API key setup
 
-3. **Set up environment variables**
+3. **Start the development server**
    ```bash
-   cp .env.example .env
-   # Edit .env with your Google Gemini API key
-   ```
-
-4. **Start the development server**
-   ```bash
+   # Start both client and server
    npm run dev
+   
+   # Or start them separately
+   # In one terminal:
+   npm run dev:server
+   # In another terminal:
+   npm run dev:client
    ```
 
-5. **Access the application**
+4. **Access the application**
    - Frontend: http://localhost:5000
    - API Server: http://localhost:5000/api
 
 ## 🏗️ Project Structure
 
 ```
-├── client/                 # Frontend React application
-│   ├── public/            # Static assets
-│   └── src/               # Source code
-│       ├── components/    # Reusable UI components
-│       ├── pages/         # Page components
-│       ├── hooks/         # Custom React hooks
-│       └── lib/           # Utility functions and API clients
-├── server/                # Backend Express application
-│   ├── services/          # Business logic and external services
-│   ├── routes.ts          # API route definitions
-│   └── index.ts           # Server entry point
-├── shared/                # Shared types and utilities
-└── .github/               # GitHub workflows and templates
+saanchari/
+├── src/
+│   ├── client/            # Frontend React application
+│   │   ├── public/        # Static assets
+│   │   └── src/           # Source code
+│   │       ├── components/ # Reusable UI components
+│   │       ├── pages/     # Page components
+│   │       ├── hooks/     # Custom React hooks
+│   │       └── lib/       # Utility functions and API clients
+│   │
+│   ├── server/            # Backend Express application
+│   │   ├── services/      # Business logic and external services
+│   │   ├── routes.ts      # API route definitions
+│   │   └── index.ts       # Server entry point
+│   │
+│   ├── shared/            # Shared types and utilities
+│   └── attached_assets/   # Images and other assets
+│
+├── config/                # Configuration files
+│   ├── components.json    # UI components configuration
+│   ├── drizzle.config.ts  # Database migrations
+│   ├── tailwind.config.ts # Tailwind CSS config
+│   ├── tsconfig.json     # TypeScript configuration
+│   └── vite.config.ts    # Vite configuration
+│
+├── .github/              # GitHub workflows and templates
+├── docs/                 # Documentation
+└── migrations/           # Database migration files
 ```
 
 ## 🌐 API Endpoints

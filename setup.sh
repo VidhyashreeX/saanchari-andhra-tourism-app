@@ -21,9 +21,13 @@ fi
 
 echo "✅ Node.js $(node --version) found"
 
-# Install dependencies
-echo "📦 Installing dependencies..."
+# Install root dependencies
+echo "📦 Installing root dependencies..."
 npm install
+
+# Install client dependencies
+echo "📦 Installing client dependencies..."
+cd src/client && npm install && cd ../..
 
 # Create .env file if it doesn't exist
 if [ ! -f ".env" ]; then
@@ -46,7 +50,9 @@ fi
 echo "🚀 Setup complete!"
 echo ""
 echo "To start the application:"
-echo "  npm run dev"
+echo "  npm run dev           # Start both client and server"
+echo "  npm run dev:client    # Start client only"
+echo "  npm run dev:server    # Start server only"
 echo ""
 echo "The application will be available at: http://localhost:5000"
 echo ""
